@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="99389bfd-b565-4554-8fbf-5d4e1d259cba" name="xampp" url="http://localhost/tp03_secret_v1">
+        <fileTransfer mountedRoot="C:\Users\moukm\Downloads\tp3\tp03_secret_v1" accessType="MOUNT" port="0" />
+      </webServer>
+    </option>
+  </component>
+</project>

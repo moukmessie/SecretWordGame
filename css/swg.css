@@ -1,0 +1,102 @@
+html, body{
+    height: 100%;
+    text-align: center;
+}
+
+body{
+    margin: 0;
+    padding: 0;
+
+    background: url("../images/crumpled-paper-background_small.jpg");
+    background-size: cover;
+
+    display: flex;
+    flex-direction: column;
+
+    font-family: monospace;
+}
+
+header, #main-content{
+    padding: 5px;
+}
+
+footer{
+    padding: 25px;
+    background: darkslateblue;
+    color: white;
+}
+
+#main-title{
+    margin: 20px 0;
+
+    font-size: 5em ;
+    font-weight: bold;
+}
+
+#main-nav{
+    padding: 3px;
+    border-top: 1px solid ;
+    border-bottom: 1px solid ;
+    border-color: darkgrey;
+    word-spacing: 2em;
+    text-transform: uppercase;
+}
+
+#main-content{
+    flex: 1 ;
+    overflow: auto;
+}
+
+#secret-word{
+    margin: 50px 0;
+    font-size: 4em;
+    letter-spacing: 20px;
+}
+
+#secret-word-form input{
+    width: 50%;
+    padding: 5px !important;
+    background: none;
+    border-radius: 3px;
+    font-family: monospace;
+    font-size: 2em;
+    text-align: center;
+}
+
+#secret-word-form button{
+    font-size: 3em ;
+}
+
+#secret-word-win{
+    font-size: 4em;
+    font-weight: bold;
+    color: lightseagreen;
+}
+
+.secret-rules{
+    margin: 150px 0;
+    font-size: 2em;
+}
+
+.secret-letter-input{
+    font-size: 3em !important;
+    width: 1em !important;
+    margin: 0.2em !important;
+    border: 1px solid !important;
+    box-sizing: initial !important;
+    background: white !important;
+}
+
+.secret-letter-input:disabled{
+    background: none !important;
+    border-color: transparent !important;
+    color: black !important;
+
+}
+
+.secret-letter-separator{
+    display: inline-block;
+    width: 2em;
+}
+
+
