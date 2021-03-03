@@ -6,7 +6,7 @@ use swg\SecretWordGame ;
 $secret = "have fun";
 $game = new SecretWordGame($secret);
 
-$word = isset($_REQUEST['word']) ? strtolower(join ("",($_REQUEST['word']) )): null ;
+$word = isset($_REQUEST['word']) ? strtolower(implode ("",($_REQUEST['word']) )): null ;
 $word = str_split($word, 1) ;
 
 ?>

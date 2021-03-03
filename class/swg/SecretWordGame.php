@@ -19,35 +19,42 @@ class SecretWordGame
         $index = 0 ;
 
         if (isset($word)){
-            for ($i=0, $iMax = count($word); $i< $iMax; $i++) $word[$i] = strtolower($word[$i]) ;
-            for ($index, $indexMax = count($this->secret); $index < $indexMax; $index++) {
-                if($this->secret[$index] == " "){
+            foreach ($word as $i => $iValue) {
+                $word[$i] = strtolower($iValue);
+            }
+          //  for ($index, $indexMax = count($this->secret); $index < $indexMax; $index++) {
+                if($this->secret[$index] === " "){
                     $result .= " " ;
                 } elseif (isset($word[$index])) {
-                    if ($this->secret[$index] == $word[$index]) {
+                    if ($this->secret[$index] === $word[$index]) {
                         $result .= $this->secret[$index];
                     } else {
                         $result .= self::HIDDEN_CHAR;
                     }
-                } else {
+                } /*else {
                     break;
-                }
-            }
+                }*/
+           // }
         }
 
         if ($index < count($this->secret)) {
-            for ($index, $indexMax = count($this->secret); $index < $indexMax; $index++) {
-                if($this->secret[$index] == " ") $result .= " " ;
-                else $result .= self::HIDDEN_CHAR;
+            ///for ($index, $indexMax = count($this->secret); $index < $indexMax; $index++) {
+                if($this->secret[$index] === " ") {
+                    $result .= " ";
+                }
+                else {
+                    $result .= self::HIDDEN_CHAR;
+                }
             }
-        }
+       // }
 
-        $win = join("", $word) == join("", $this->secret) ;
+        $win = implode("", $word) === implode("", $this->secret) ;
         return $this->generateResponse($word, $win, $result) ;
 
     }
 
-    private function generateResponse(array $word, bool $win, string $result){
+    private function generateResponse(array $word, bool $win, string $result): array
+    {
         return array(
             'word' => $word,
             'win' => $win,
@@ -56,13 +63,13 @@ class SecretWordGame
     }
 
     public function generateInput(?array $response): void{
-        $lastWord = htmlspecialchars(join("", $response['word'])) ;
+       /* htmlspecialchars(join("", $response['word']));*/
 
         /*echo "<div id='secret-word'>".$response['result']."</div>" ;*/
 
         for ($i=0, $iMax = strlen($response['result']); $i< $iMax; $i++)
         {
-            if($response['result'][$i]=="?"){
+            if($response['result'][$i]==="?"){
                 echo "<input type='text' class='secret-letter-input' name='word[$i]' value=''>";
             }
             elseif ($response['result'][$i]===""){
@@ -91,7 +98,7 @@ echo "<input type='hidden' name='word[$i]' class='secret-word' value='".$respons
 
 
     public function generateWin() : void{
-        echo "<div id='secret-word'>".join("", $this->secret)."</div>" ;
+        echo "<div id='secret-word'>".implode("", $this->secret)."</div>" ;
         echo "<div id='secret-word-win'>!!! YOU WIN !!!</div>" ;
     }
 
