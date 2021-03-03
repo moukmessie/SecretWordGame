@@ -22,7 +22,7 @@ class SecretWordGame
             foreach ($word as $i => $iValue) {
                 $word[$i] = strtolower($iValue);
             }
-          //  for ($index, $indexMax = count($this->secret); $index < $indexMax; $index++) {
+            for ($index, $indexMax = count($this->secret); $index < $indexMax; $index++) {
                 if($this->secret[$index] === " "){
                     $result .= " " ;
                 } elseif (isset($word[$index])) {
@@ -31,14 +31,14 @@ class SecretWordGame
                     } else {
                         $result .= self::HIDDEN_CHAR;
                     }
-                } /*else {
+                } else {
                     break;
-                }*/
-           // }
+                }
+            }
         }
 
         if ($index < count($this->secret)) {
-            ///for ($index, $indexMax = count($this->secret); $index < $indexMax; $index++) {
+            for ($index, $indexMax = count($this->secret); $index < $indexMax; $index++) {
                 if($this->secret[$index] === " ") {
                     $result .= " ";
                 }
@@ -46,7 +46,7 @@ class SecretWordGame
                     $result .= self::HIDDEN_CHAR;
                 }
             }
-       // }
+        }
 
         $win = implode("", $word) === implode("", $this->secret) ;
         return $this->generateResponse($word, $win, $result) ;
